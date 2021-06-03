@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-package mooer;
+package GUI.mooer.src.mooer;
 
-import javax.swing.JLabel;
+import javax.swing.*;
 
 /**
- *
  * @author Evistix
  */
 //Evistix
 public class ChangeImg {//给标签换图片
-    public static void changeImg(JLabel jlabel,int i){
-        jlabel.setIcon(Golbal.cardsList[i].image);
+
+    public static void changeImg( JLabel jlabel, int i ) {
+        jlabel.setIcon( Golbal.cardsList[i].image );
     }
-    
+
 }

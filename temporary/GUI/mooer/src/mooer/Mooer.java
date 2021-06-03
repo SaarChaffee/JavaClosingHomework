@@ -4,13 +4,9 @@
  * and open the template in the editor.
  */
 
-package mooer;
-
-import java.awt.Image;
-import javax.swing.ImageIcon;
+package GUI.mooer.src.mooer;
 
 /**
- *
  * @author Evistix
  */
 
@@ -19,10 +15,10 @@ public class Mooer {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main( String[] args ) {
         // TODO code application logic here
-        new ImgTest().setVisible(true);
-        ChangeImg.changeImg(ImgTest.jLabel1, 8);
+        new ImgTest().setVisible( true );
+        ChangeImg.changeImg( ImgTest.jLabel1, 8 );
     }
-    
+
 }
