@@ -4,13 +4,12 @@
  * @Code: GBK
  * @Date: Created in 2021 2021/5/24
  */
-package JDBC;
+package JDBC.DAOTest;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class JDBC {
+
     public static void main( String[] args ) {
         //1.加载驱动
         try{
@@ -20,7 +19,7 @@ public class JDBC {
             String password = "111";
             Connection conn = null;
 
-//2.获取与数据库的链接
+            //2.获取与数据库的链接
             conn = DriverManager.getConnection( url, username, password );
         }catch( ClassNotFoundException | SQLException e ){
             e.printStackTrace();
