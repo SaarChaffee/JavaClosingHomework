@@ -7,17 +7,15 @@
 package JDBC;
 
 import java.security.SecureRandom;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DaoPlus {
     /**
      * TODO
      * 新建用户√
-     * 用户登录
-     * 读取用户数据
+     * 用户登录√
+     * 读取用户数据√
+     * 读取收集
      * 查看好友
      * 添加好友
      * 删除好友
@@ -27,6 +25,20 @@ public class DaoPlus {
      * 查询卡片
      * 胜负场数及举报查询
      */
+    public static boolean[] getColle( int UserUid ) {
+        boolean[] colle = new boolean[61];
+        try{
+            String str = "select * from CardColle where UserUid = '" + UserUid + "'";
+            ResultSet re = DaoBase.Search( str );
+            for( int i = 1; i <= 60; i++ ){
+                colle[i] = re.getBoolean( i );
+            }
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return colle;
+    }
+
     public static int getNewUid() {
         return new SecureRandom().nextInt( 999999999 );
     }
@@ -36,7 +48,7 @@ public class DaoPlus {
         return DaoBase.Search( str );
     }
 
-    public static int getUserUidByAcc( int Account ) {
+    public static int getUserUidByAcc( String Account ) {
         int result = 0;
         try{
             String str = "select UserUid from AccountDate where UserUid = '" + Account + "'";
@@ -45,6 +57,22 @@ public class DaoPlus {
             throwables.printStackTrace();
         }
         return result;
+    }
+
+    public static String getPasswordByAcc( String Account ) {
+        String result = null;
+        try{
+            String str = "select Password from AccountData where Account = '" + Account + "'";
+            result = DaoBase.Search( str ).getString( "Password" );
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+
+    public static ResultSet getAllUserData( int UserUid ) {
+        String str = "select * from UserData where UserUid = '" + UserUid + "'";
+        return DaoBase.Search( str );
     }
 
     public static int NewUser( String Account, String PassWord, int PhoneNumber ) {
