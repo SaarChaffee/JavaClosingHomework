@@ -15,14 +15,13 @@ public class DaoPlus {
      * 新建用户√
      * 用户登录√
      * 读取用户数据√
-     * 读取收集
+     * 读取收集√
      * 查看好友
      * 添加好友
      * 删除好友
      * 商店看余额和没有的卡片
      * 氪金
      * 卡片增加
-     * 查询卡片
      * 胜负场数及举报查询
      */
     public static boolean[] getColle( int UserUid ) {
