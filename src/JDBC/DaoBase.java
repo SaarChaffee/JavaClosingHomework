@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Dao {
+public class DaoBase {
 
     public int Update( String str ) {
         Statement stat = JDBC.getStat();
