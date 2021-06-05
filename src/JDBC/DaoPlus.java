@@ -6,6 +6,6 @@
  */
 package JDBC;
 
-public class Util {
+public class DaoPlus {
 
 }
