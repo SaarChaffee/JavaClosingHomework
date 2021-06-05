@@ -14,18 +14,24 @@ import java.sql.Statement;
 
 public class JDBC {
     private static Statement stat;
+    private static Connection conn;
+    private static ComboPooledDataSource cp = new ComboPooledDataSource();
 
-    static {
+    public static Connection getConn() {
         try{
-            ComboPooledDataSource cp = new ComboPooledDataSource();
-            Connection conn = cp.getConnection();
-            stat = conn.createStatement();
+            conn = cp.getConnection();
         }catch( SQLException throwables ){
             throwables.printStackTrace();
         }
+        return conn;
     }
 
     public static Statement getStat() {
+        try{
+            stat = getConn().createStatement();
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
         return stat;
     }
 }
