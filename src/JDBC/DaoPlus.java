@@ -9,6 +9,7 @@ package JDBC;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DaoPlus {
@@ -25,10 +26,25 @@ public class DaoPlus {
      * 卡片增加
      * 查询卡片
      * 胜负场数及举报查询
-     *
      */
     public static int getNewUid() {
         return new SecureRandom().nextInt( 999999999 );
+    }
+
+    public static ResultSet getAllUserUid() {
+        String str = "select UserUid from AccountDate";
+        return DaoBase.Search( str );
+    }
+
+    public static int getUserUidByAcc( int Account ) {
+        int result = 0;
+        try{
+            String str = "select UserUid from AccountDate where UserUid = '" + Account + "'";
+            result = DaoBase.Search( str ).getInt( "UserUid" );
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return result;
     }
 
     public static int NewUser( String Account, String PassWord, int PhoneNumber ) {
@@ -51,6 +67,10 @@ public class DaoPlus {
             PreparedStatement pre3 = conn.prepareStatement( str3 );
             pre3.setInt( 1, getNewUid() );
             result += pre3.executeUpdate();
+            pre1.close();
+            pre2.close();
+            pre3.close();
+            conn.close();
         }catch( SQLException throwables ){
             throwables.printStackTrace();
         }

@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 public class DaoBase {
 
-    public int Update( String str ) {
+    public static int Update( String str ) {
         Statement stat = JDBC.getStat();
         int result = 0;
         try{
@@ -24,7 +24,7 @@ public class DaoBase {
         return result;
     }
 
-    public ResultSet Search( String str ) {
+    public static ResultSet Search( String str ) {
         Statement stat = JDBC.getStat();
         ResultSet result = null;
         try{
