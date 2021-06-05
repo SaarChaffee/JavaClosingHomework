@@ -11,18 +11,18 @@ class KeyData {
     String UserName;
     String Account;
     String Password;
-    String PhoneNumber;
-    String UserLevel;
+    int PhoneNumber;
+    int UserLevel;
     int UserWin;
     int UserLost;
     int Reported;
     int UserCardQuantity;
     int UserBalance;
     String UserSignature;
-    String FriendUid;
+    int FriendUid;
     String RedemptionCode;
-    String RedemptionCodeValue;
-    boolean isUsed;
+    int RedemptionCodeValue;
+    int RedemptionUsed;
     boolean[] HaveCard;
 
     public int getUserUid() {
@@ -57,19 +57,19 @@ class KeyData {
         Password = password;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return PhoneNumber;
     }
 
-    public void setPhoneNumber( String phoneNumber ) {
+    public void setPhoneNumber( int phoneNumber ) {
         PhoneNumber = phoneNumber;
     }
 
-    public String getUserLevel() {
+    public int getUserLevel() {
         return UserLevel;
     }
 
-    public void setUserLevel( String userLevel ) {
+    public void setUserLevel( int userLevel ) {
         UserLevel = userLevel;
     }
 
@@ -121,11 +121,11 @@ class KeyData {
         UserSignature = userSignature;
     }
 
-    public String getFriendUid() {
+    public int getFriendUid() {
         return FriendUid;
     }
 
-    public void setFriendUid( String friendUid ) {
+    public void setFriendUid( int friendUid ) {
         FriendUid = friendUid;
     }
 
@@ -137,20 +137,20 @@ class KeyData {
         RedemptionCode = redemptionCode;
     }
 
-    public String getRedemptionCodeValue() {
+    public int getRedemptionCodeValue() {
         return RedemptionCodeValue;
     }
 
-    public void setRedemptionCodeValue( String redemptionCodeValue ) {
+    public void setRedemptionCodeValue( int redemptionCodeValue ) {
         RedemptionCodeValue = redemptionCodeValue;
     }
 
-    public boolean isUsed() {
-        return isUsed;
+    public int getRedemptionUsed() {
+        return RedemptionUsed;
     }
 
-    public void setUsed( boolean used ) {
-        isUsed = used;
+    public void setRedemptionUsed( int redemptionUsed ) {
+        RedemptionUsed = redemptionUsed;
     }
 
     public boolean[] getHaveCard() {
