@@ -9,8 +9,9 @@ package JDBC.DAOTest;
 import java.sql.*;
 
 public class JDBC {
+    private static Statement stat;
 
-    public static void main( String[] args ) {
+    static {
         //1.加载驱动
         try{
             Class.forName( "com.microsoft.sqlserver.jdbc.SQLServerDriver" );
@@ -21,10 +22,15 @@ public class JDBC {
 
             //2.获取与数据库的链接
             conn = DriverManager.getConnection( url, username, password );
+            stat = conn.createStatement();
         }catch( ClassNotFoundException | SQLException e ){
             e.printStackTrace();
         }
 
+    }
+
+    public static Statement getStat() {
+        return stat;
     }
 }
 /**
