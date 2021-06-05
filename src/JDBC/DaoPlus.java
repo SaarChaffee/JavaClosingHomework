@@ -26,7 +26,6 @@ public class DaoPlus {
      * 查询卡片
      * 胜负场数及举报查询
      *
-     * @return
      */
     public static int getNewUid() {
         return new SecureRandom().nextInt( 999999999 );
