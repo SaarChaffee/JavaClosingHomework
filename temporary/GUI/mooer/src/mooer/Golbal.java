@@ -4,20 +4,22 @@
  * and open the template in the editor.
  */
 
-package GUI.mooer.src.mooer;
+package mooer;
+
+import javax.swing.ImageIcon;
 
 
 /**
+ *
  * @author Evistix
  */
 //Evistix
-public class Golbal {//全局变量
-    public static Cards[] cardsList = new Cards[61];//骑士卡牌数组
-
+public class Golbal{//全局变量
+    public static Cards [] cardsList= new Cards[61];//骑士卡牌数组
     static {
-        for( int i = 0; i < 61; i++ ){
+        for(int i = 0; i < 61; i++) {
             cardsList[i] = new Cards();
         }
     }
-
+   
 }
