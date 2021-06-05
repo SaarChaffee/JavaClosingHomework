@@ -15,6 +15,7 @@ Go
 create table UserData
 (
     UserUid int primary key foreign key references AccountData (UserUid),
+    Account varchar(50) not null,
     UserLevel int,
     UserWin int,
     UserLost int,
