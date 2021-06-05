@@ -6,22 +6,9 @@
  */
 package JDBC;
 
-//public class JDBC {
-//    private static Statement stat;
-//
-//    static {
-//        try{
-//            ComboPooledDataSource cp = new ComboPooledDataSource();
-//            Connection conn = cp.getConnection();
-//            stat = conn.createStatement();
-//        }catch( SQLException throwables ){
-//            throwables.printStackTrace();
-//        }
-//    }
-//}
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -29,27 +16,45 @@ public class JDBC {
     private static Statement stat;
 
     static {
-        //1.加载驱动
         try{
-            Class.forName( "com.microsoft.sqlserver.jdbc.SQLServerDriver" );
-            String url = "jdbc:sqlserver://localhost:1433";
-            String username = "Java";
-            String password = "111";
-            Connection conn = null;
-
-            //2.获取与数据库的链接
-            conn = DriverManager.getConnection( url, username, password );
+            ComboPooledDataSource cp = new ComboPooledDataSource();
+            Connection conn = cp.getConnection();
             stat = conn.createStatement();
-        }catch( ClassNotFoundException | SQLException e ){
-            e.printStackTrace();
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
         }
-
     }
 
     public static Statement getStat() {
         return stat;
     }
 }
+
+//public class JDBC {
+//    private static Statement stat;
+//
+//    static {
+//        //1.加载驱动
+//        try{
+//            Class.forName( "com.microsoft.sqlserver.jdbc.SQLServerDriver" );
+//            String url = "jdbc:sqlserver://localhost:1433";
+//            String username = "Java";
+//            String password = "111";
+//            Connection conn = null;
+//
+//            //2.获取与数据库的链接
+//            conn = DriverManager.getConnection( url, username, password );
+//            stat = conn.createStatement();
+//        }catch( ClassNotFoundException | SQLException e ){
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//    public static Statement getStat() {
+//        return stat;
+//    }
+//}
 /**
  * drop database db
  * create database db
