@@ -9,6 +9,10 @@ package JDBC;
 import java.security.SecureRandom;
 import java.sql.*;
 
+/**
+ * TODO
+ * 进一步分离Dao层
+ */
 public class DaoPlus {
     /**
      * 新建用户
