@@ -7,7 +7,10 @@
 package JDBC;
 
 import java.security.SecureRandom;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * TODO
@@ -80,14 +83,14 @@ public class DaoPlus {
     }
 
     public static ResultSet getAllUserUid() {
-        String str = "select UserUid from AccountDate";
+        String str = "select UserUid from AccountData";
         return DaoBase.Search( str );
     }
 
     public static int getUserUidByAcc( String Account ) {
         int result = 0;
         try{
-            String str = "select UserUid from AccountDate where UserUid = '" + Account + "'";
+            String str = "select UserUid from AccountData where UserUid = '" + Account + "'";
             result = DaoBase.Search( str ).getInt( "UserUid" );
         }catch( SQLException throwables ){
             throwables.printStackTrace();
@@ -96,16 +99,22 @@ public class DaoPlus {
     }
 
     /**
-     * TODO
+     * 用PreparedStatement来动态组装SQL语句
      * SQL防注入攻击
-     * @param Account
-     * @return
      */
     public static String getPasswordByAcc( String Account ) {
         String result = null;
+        Connection conn;
+        String str = null;
+        ResultSet re = null;
+        PreparedStatement pre = null;
         try{
-            String str = "select Password from AccountData where Account = '" + Account + "'";
-            result = DaoBase.Search( str ).getString( "Password" );
+            conn = JDBC.getConn();
+            str = "select PassWord from AccountData where Account = '?'";
+            pre.setString( 1, Account );
+            re = pre.executeQuery();
+            re.next();
+            result = re.getString( "PassWord" );
         }catch( SQLException throwables ){
             throwables.printStackTrace();
         }
@@ -120,8 +129,8 @@ public class DaoPlus {
     public static int NewUser( String Account, String PassWord, int PhoneNumber ) {
         int result = 0;
         try{
-            Connection conn = ( Connection ) JDBC.getStat();
-            String str1 = "insert into AccountDate " + "value('?','?','?','?')";
+            Connection conn = JDBC.getConn();
+            String str1 = "insert into AccountData " + "value('?','?','?','?')";
             PreparedStatement pre1 = conn.prepareStatement( str1 );
             pre1.setInt( 1, getNewUid() );
             pre1.setString( 2, Account );
