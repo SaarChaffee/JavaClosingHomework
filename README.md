@@ -1,6 +1,6 @@
 # Mooer Village Knights Cards
 
-## JavaClosingHomework
+## JDBC module of JavaClosingHomework
 
 <h1>
 
