@@ -19,11 +19,46 @@ public class DaoPlus {
      * 查看好友
      * 添加好友
      * 删除好友
-     * 商店看余额和没有的卡片
      * 氪金
      * 卡片增加
      * 胜负场数及举报查询
      */
+    public static ResultSet getFriend( int UserUid ) {
+
+    }
+
+    public static int addFriend( int UserUid, int FriendUid ) {
+
+    }
+
+    public static int deleteFriend( int UserUid, int FriendUid ) {
+
+    }
+
+    public static int recharge( int UserUid, String Code, int Value ) {
+
+    }
+
+    public static int getCard( int UserUid, String CardName ) {
+
+    }
+
+    public static int userWin( int UserUid ) {
+
+    }
+
+    public static int userLost( int UserUid ) {
+
+    }
+
+    public static int reported( int UserUid ) {
+
+    }
+
+    public static ResultSet getWLR( int UserUid ) {
+
+    }
+
     public static boolean[] getColle( int UserUid ) {
         boolean[] colle = new boolean[61];
         try{
