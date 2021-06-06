@@ -11,17 +11,22 @@ import java.sql.*;
 
 public class DaoPlus {
     /**
-     * TODO
-     * 新建用户√
-     * 用户登录√
-     * 读取用户数据√
-     * 读取收集√
+     * 新建用户
+     * 用户登录
+     * 读取用户数据
+     * 读取收集
      * 查看好友
+     * 判断好友
      * 添加好友
      * 删除好友
      * 氪金
+     * 查询余额
+     * 查询兑换码信息
+     * 查询兑换码是否使用
+     * 使用兑换码
      * 卡片增加
-     * 胜负场数及举报查询
+     * 查询胜场负场举报次数
+     * 胜利失败被举报
      */
     public static ResultSet getFriend( int UserUid ) {
         String str = "select * from Friend where UserUid = '" + UserUid + "' UNION ALL select * from Friend where FriendUid = '" + UserUid + "'";
@@ -70,29 +75,102 @@ public class DaoPlus {
         return result;
     }
 
-    public static int recharge( int UserUid, String Code, int Value ) {
+    public static int recharge( int UserUid, String Code ) {
         int result = 0;
+        if( !isRedemptionUsed( Code ) ){
+            ResultSet re;
+            int balance = 0;
+            try{
+                re = getRedmptionInfo( Code );
+                re.next();
+                balance = getUserBalance( UserUid ) + re.getInt( "RedemptionCodeValue" );
+            }catch( SQLException throwables ){
+                throwables.printStackTrace();
+            }
+            String str1 = "update UserData set UserBalance = '" + balance + "' where UserUid = '" + UserUid + "'";
+            result += DaoBase.Update( str1 );
+            String str2 = "update Redemption set RedemptionUsed = '" + UserUid + "' where RedemptionCode = '" + Code + "'";
+            result += DaoBase.Update( str2 );
+        }
+        return result;
+    }
 
+    public static ResultSet getRedmptionInfo( String RedemptionCode ) {
+        String str = "select * from Redemption where RedemptionCode = '" + RedemptionCode + "'";
+        return DaoBase.Search( str );
+    }
+
+    public static boolean isRedemptionUsed( String RedemptionCode ) {
+        try{
+            ResultSet re = getRedmptionInfo( RedemptionCode );
+            re.next();
+            if( re.getInt( "RedemptionUsed" ) != 0 ) return true;
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return false;
     }
 
     public static int getCard( int UserUid, String CardName ) {
-
+        String str = "update CardColle set " + CardName + " = 'true' where UserUid = '" + UserUid + "'";
+        return DaoBase.Update( str );
     }
 
     public static int userWin( int UserUid ) {
-
+        int win = getWin( UserUid ) + 1;
+        String str = "update UserData set UserWin = '" + win + "' where UserUid = '" + UserUid + "'";
+        return DaoBase.Update( str );
     }
 
     public static int userLost( int UserUid ) {
-
+        int lost = getLost( UserUid ) + 1;
+        String str = "update UserData set UserLost = '" + lost + "' where UserUid = '" + UserUid + "'";
+        return DaoBase.Update( str );
     }
 
     public static int reported( int UserUid ) {
-
+        int reported = getReport( UserUid ) + 1;
+        String str = "update UserData set Reported = '" + reported + "' where UserUid = '" + UserUid + "'";
+        return DaoBase.Update( str );
     }
 
-    public static ResultSet getWLR( int UserUid ) {
+    public static int getWin( int UserUid ) {
+        ResultSet re;
+        int win = 0;
+        try{
+            re = getAllUserData( UserUid );
+            re.next();
+            win = re.getInt( "UserWin" );
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return win;
+    }
 
+    public static int getLost( int UserUid ) {
+        ResultSet re;
+        int lost = 0;
+        try{
+            re = getAllUserData( UserUid );
+            re.next();
+            lost = re.getInt( "UserLost" );
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return lost;
+    }
+
+    public static int getReport( int UserUid ) {
+        ResultSet re;
+        int report = 0;
+        try{
+            re = getAllUserData( UserUid );
+            re.next();
+            report = re.getInt( "Reported" );
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return report;
     }
 
     public static boolean[] getColle( int UserUid ) {
@@ -114,11 +192,31 @@ public class DaoPlus {
         return new SecureRandom().nextInt( 999999999 );
     }
 
+    public static int getUserBalance( int UserUid ) {
+        ResultSet re;
+        int balance = 0;
+        try{
+            re = getAllUserData( UserUid );
+            re.next();
+            balance = re.getInt( "UserBalance" );
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return balance;
+    }
+
     public static ResultSet getAllUserUid() {
         String str = "select UserUid from AccountDate";
         return DaoBase.Search( str );
     }
 
+    /**
+     * TODO
+     * SQL防注入攻击
+     *
+     * @param Account
+     * @return
+     */
     public static int getUserUidByAcc( String Account ) {
         int result = 0;
         try{
