@@ -3,7 +3,7 @@
     <default-config>
         <property name="user">Java</property>
         <property name="password">111</property>
-        <property name="jdbcUrl">jdbc:sqlserver://localhost:1433
+        <property name="jdbcUrl">jdbc:sqlserver://localhost:1433;databaseName=mooer
         </property>
         <property name="driverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
         <!-- 连接池初始化的时候的连接数 -->
