@@ -214,13 +214,6 @@ public class DaoPlus {
         return DaoBase.Search( str );
     }
 
-    /**
-     * TODO
-     * SQL·À×¢Èë¹¥»÷
-     *
-     * @param Account
-     * @return
-     */
     public static int getUserUidByAcc( String Account ) {
         int result = 0;
         try{
@@ -232,6 +225,12 @@ public class DaoPlus {
         return result;
     }
 
+    /**
+     * TODO
+     * SQL·À×¢Èë¹¥»÷
+     * @param Account
+     * @return
+     */
     public static String getPasswordByAcc( String Account ) {
         String result = null;
         try{
