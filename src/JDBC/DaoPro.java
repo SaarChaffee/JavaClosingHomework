@@ -27,35 +27,7 @@ public class DaoPro {
         return false;
     }
 
-    public static int addFriend( int UserUid, int FriendUid ) {
-        int result = 0;
-        if( UserUid > FriendUid ){
-            UserUid = UserUid ^ FriendUid;
-            FriendUid = UserUid ^ FriendUid;
-            UserUid = UserUid ^ FriendUid;
-        }
-        if( isFriend( UserUid, FriendUid ) ){
-            String str = "insert into Friend value('" + UserUid + "','" + FriendUid + "')";
-            result += DaoBase.Update( str );
-            return result;
-        }
-        return result;
-    }
 
-    public static int deleteFriend( int UserUid, int FriendUid ) {
-        int result = 0;
-        if( UserUid > FriendUid ){
-            UserUid = UserUid ^ FriendUid;
-            FriendUid = UserUid ^ FriendUid;
-            UserUid = UserUid ^ FriendUid;
-        }
-        if( isFriend( UserUid, FriendUid ) ){
-            String str = "delete from Friend where UserUid = '" + UserUid + "' and FriendUid = '" + FriendUid + "'";
-            result += DaoBase.Update( str );
-            return result;
-        }
-        return result;
-    }
 
     public static boolean isRedemptionUsed( String RedemptionCode ) {
         try{
@@ -127,23 +99,7 @@ public class DaoPro {
         return report;
     }
 
-    public static int userWin( int UserUid ) {
-        int win = getWin( UserUid ) + 1;
-        String str = "update UserData set UserWin = '" + win + "' where UserUid = '" + UserUid + "'";
-        return DaoBase.Update( str );
-    }
 
-    public static int userLost( int UserUid ) {
-        int lost = getLost( UserUid ) + 1;
-        String str = "update UserData set UserLost = '" + lost + "' where UserUid = '" + UserUid + "'";
-        return DaoBase.Update( str );
-    }
-
-    public static int reported( int UserUid ) {
-        int reported = getReport( UserUid ) + 1;
-        String str = "update UserData set Reported = '" + reported + "' where UserUid = '" + UserUid + "'";
-        return DaoBase.Update( str );
-    }
 
 
 }
