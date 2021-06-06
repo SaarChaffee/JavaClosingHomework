@@ -2,6 +2,9 @@ package JDBC;
 
 import org.junit.Test;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
@@ -19,5 +22,13 @@ public class DaoBaseTest {
 
     @Test
     public void search() {
+        String str = "select Account from AccountData where PassWord = '1'";
+        ResultSet re = DaoBase.Search( str );
+        try{
+            re.next();
+            System.out.println( re.getInt( 1 ) );
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
     }
 }
