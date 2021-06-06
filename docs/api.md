@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # api
 
 ## 方法
@@ -38,7 +34,7 @@ sidebar: auto
 - **说明：**
   用随机数生成用户 9 位数的 uid
 
-### `getUserUidBtAcc`
+### `getUserUidBtAcc()`
 
 - **参数：** `String : 用户账户`
 - **返回：** `int : 用户uid`
