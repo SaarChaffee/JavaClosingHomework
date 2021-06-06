@@ -24,18 +24,54 @@ public class DaoPlus {
      * 胜负场数及举报查询
      */
     public static ResultSet getFriend( int UserUid ) {
-
+        String str = "select * from Friend where UserUid = '" + UserUid + "' UNION ALL select * from Friend where FriendUid = '" + UserUid + "'";
+        return DaoBase.Search( str );
     }
 
     public static int addFriend( int UserUid, int FriendUid ) {
+        if( UserUid > FriendUid ){
+            UserUid = UserUid ^ FriendUid;
+            FriendUid = UserUid ^ FriendUid;
+            UserUid = UserUid ^ FriendUid;
+        }
+        String str = "insert into Friend value('" + UserUid + "','" + FriendUid + "')";
+        return DaoBase.Update( str );
+    }
 
+    public static boolean isFriend( int UserUid, int FriendUid ) {
+        try{
+            if( UserUid > FriendUid ){
+                UserUid = UserUid ^ FriendUid;
+                FriendUid = UserUid ^ FriendUid;
+                UserUid = UserUid ^ FriendUid;
+            }
+            ResultSet re = getFriend( UserUid );
+            while( re.next() ){
+                if( re.getInt( "FriendUid" ) == FriendUid ) return true;
+            }
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return false;
     }
 
     public static int deleteFriend( int UserUid, int FriendUid ) {
-
+        int result = 0;
+        if( UserUid > FriendUid ){
+            UserUid = UserUid ^ FriendUid;
+            FriendUid = UserUid ^ FriendUid;
+            UserUid = UserUid ^ FriendUid;
+        }
+        if( isFriend( UserUid, FriendUid ) ){
+            String str = "delete from Friend where UserUid = '" + UserUid + "' and FriendUid = '" + FriendUid + "'";
+            result += DaoBase.Update( str );
+            return result;
+        }
+        return result;
     }
 
     public static int recharge( int UserUid, String Code, int Value ) {
+        int result = 0;
 
     }
 
@@ -64,6 +100,7 @@ public class DaoPlus {
         try{
             String str = "select * from CardColle where UserUid = '" + UserUid + "'";
             ResultSet re = DaoBase.Search( str );
+            re.next();
             for( int i = 1; i <= 60; i++ ){
                 colle[i] = re.getBoolean( i );
             }
