@@ -29,7 +29,6 @@ public class DaoBase {
         ResultSet result = null;
         try{
             result = stat.executeQuery( str );
-            stat.close();
         }catch( SQLException throwable ){
             throwable.printStackTrace();
         }
