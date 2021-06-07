@@ -15,8 +15,8 @@ public class DaoBaseTest {
 
     @Test
     public void update() {
-//        String str = "INSERT INTO dbo.AccountData(UserUid,Account,PassWord,PhoneNumber)VALUES(1,1,1,1)";
-        String str = "delete from AccountData where UserUid = '1'";
+        String str = "INSERT INTO AccountData VALUES(1,1,1,1)";
+//        String str = "delete from AccountData where UserUid = '1'";
         System.out.println( DaoBase.Update( str ) );
     }
 
