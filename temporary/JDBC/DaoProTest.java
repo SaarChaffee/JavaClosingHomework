@@ -33,13 +33,16 @@ public class DaoProTest {
 
     @Test
     public void getWin() {
+        System.out.println( DaoPro.getWin( 686838635 ) );
     }
 
     @Test
     public void getLost() {
+        System.out.println( DaoPro.getLost( 686838635 ) );
     }
 
     @Test
     public void getReport() {
+        System.out.println( DaoPro.getReport( 686838635 ) );
     }
 }
