@@ -31,6 +31,7 @@ public class DaoPlusTest {
 
     @Test
     public void getNewUid() {
+        System.out.println( DaoPlus.getNewUid() );
     }
 
     @Test
