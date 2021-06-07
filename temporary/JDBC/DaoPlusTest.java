@@ -27,6 +27,12 @@ public class DaoPlusTest {
 
     @Test
     public void getColle() {
+        boolean[] colle = new boolean[61];
+        colle = DaoPlus.getColle( 686838635 );
+        for( int i = 1; i <= 60; i++ ){
+            System.out.print( i + ":" );
+            System.out.print( colle[i] + " " );
+        }
     }
 
     @Test

@@ -57,7 +57,7 @@ public class DaoPlus {
             ResultSet re = DaoBase.Search( str );
             re.next();
             for( int i = 1; i <= 60; i++ ){
-                colle[i] = re.getBoolean( i );
+                colle[i] = re.getBoolean( i + 1 );
             }
         }catch( SQLException throwables ){
             throwables.printStackTrace();
