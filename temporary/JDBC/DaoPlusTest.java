@@ -19,6 +19,15 @@ public class DaoPlusTest {
 
     @Test
     public void getRedmptionInfo() {
+        ResultSet re = DaoPlus.getRedmptionInfo( "yq1308301" );
+        try{
+            re.next();
+            System.out.println(re.getInt( "RedemptionCodeValue" ));
+            System.out.println(re.getInt( "RedemptionUsed" ));
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+
     }
 
     @Test

@@ -41,6 +41,9 @@ public class DaoPlus {
     }
 
     public static ResultSet getRedmptionInfo( String RedemptionCode ) {
+        /**TODO
+         * 进一步分离数据
+         */
         String str = "select * from Redemption where RedemptionCode = '" + RedemptionCode + "'";
         return DaoBase.Search( str );
     }
