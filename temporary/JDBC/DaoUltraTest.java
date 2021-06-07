@@ -14,10 +14,12 @@ public class DaoUltraTest {
 
     @Test
     public void addFriend() {
+        System.out.println( DaoUltra.addFriend( 0, 9497 ) );
     }
 
     @Test
     public void deleteFriend() {
+        System.out.println( DaoUltra.deleteFriend( 0, 9497 ) );
     }
 
     @Test
