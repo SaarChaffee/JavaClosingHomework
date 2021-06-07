@@ -15,7 +15,7 @@ public class DaoUltra {
             UserUid = UserUid ^ FriendUid;
         }
         if( DaoPro.isFriend( UserUid, FriendUid ) ){
-            String str = "insert into Friend value('" + UserUid + "','" + FriendUid + "')";
+            String str = "insert into Friend values(" + UserUid + "," + FriendUid + ")";
             result += DaoBase.Update( str );
             return result;
         }
