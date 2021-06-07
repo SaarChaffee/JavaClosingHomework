@@ -30,7 +30,7 @@ public class DaoUltra {
             UserUid = UserUid ^ FriendUid;
         }
         if( DaoPro.isFriend( UserUid, FriendUid ) ){
-            String str = "delete from Friend where UserUid = '" + UserUid + "' and FriendUid = '" + FriendUid + "'";
+            String str = "delete from Friend where UserUid = " + UserUid + " and FriendUid = " + FriendUid;
             result += DaoBase.Update( str );
             return result;
         }
@@ -39,19 +39,19 @@ public class DaoUltra {
 
     public static int userWin( int UserUid ) {
         int win = DaoPro.getWin( UserUid ) + 1;
-        String str = "update UserData set UserWin = '" + win + "' where UserUid = '" + UserUid + "'";
+        String str = "update UserData set UserWin = " + win + " where UserUid = " + UserUid;
         return DaoBase.Update( str );
     }
 
     public static int userLost( int UserUid ) {
         int lost = DaoPro.getLost( UserUid ) + 1;
-        String str = "update UserData set UserLost = '" + lost + "' where UserUid = '" + UserUid + "'";
+        String str = "update UserData set UserLost = " + lost + " where UserUid = " + UserUid;
         return DaoBase.Update( str );
     }
 
     public static int reported( int UserUid ) {
         int reported = DaoPro.getReport( UserUid ) + 1;
-        String str = "update UserData set Reported = '" + reported + "' where UserUid = '" + UserUid + "'";
+        String str = "update UserData set Reported = " + reported + " where UserUid = " + UserUid;
         return DaoBase.Update( str );
     }
 }
