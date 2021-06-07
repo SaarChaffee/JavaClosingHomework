@@ -30,7 +30,7 @@ public class DaoPro {
 
     public static boolean isRedemptionUsed( String RedemptionCode ) {
         try{
-            ResultSet re = DaoPlus.getRedmptionInfo( RedemptionCode );
+            ResultSet re = DaoPlus.getRedemptionInfo( RedemptionCode );
             re.next();
             if( re.getInt( "RedemptionUsed" ) != 0 ) return true;
         }catch( SQLException throwables ){
@@ -45,7 +45,7 @@ public class DaoPro {
             ResultSet re;
             int balance = 0;
             try{
-                re = DaoPlus.getRedmptionInfo( Code );
+                re = DaoPlus.getRedemptionInfo( Code );
                 re.next();
                 balance = DaoPlus.getUserBalance( UserUid ) + re.getInt( "RedemptionCodeValue" );
             }catch( SQLException throwables ){

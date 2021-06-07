@@ -40,7 +40,7 @@ public class DaoPlus {
         return DaoBase.Search( str );
     }
 
-    public static ResultSet getRedmptionInfo( String RedemptionCode ) {
+    public static ResultSet getRedemptionInfo( String RedemptionCode ) {
         /**TODO
          * 进一步分离数据
          */
