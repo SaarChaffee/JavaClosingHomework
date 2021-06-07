@@ -43,7 +43,7 @@ public class DaoPlusTest {
 
     @Test
     public void getUserUidByAcc() {
-
+        System.out.println(DaoPlus.getUserUidByAcc( "adadadad" ));
     }
 
     @Test

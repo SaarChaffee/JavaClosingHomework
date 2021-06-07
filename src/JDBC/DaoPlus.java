@@ -93,9 +93,12 @@ public class DaoPlus {
          * change to use phonenum search
          */
         int result = 0;
+        ResultSet re = null;
         try{
-            String str = "select UserUid from AccountData where UserUid = '" + Account + "'";
-            result = DaoBase.Search( str ).getInt( "UserUid" );
+            String str = "select UserUid from AccountData where Account = '" + Account + "'";
+            re = DaoBase.Search( str );
+            re.next();
+            result = re.getInt( "UserUid" );
         }catch( SQLException throwables ){
             throwables.printStackTrace();
         }
