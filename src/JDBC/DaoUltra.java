@@ -29,7 +29,7 @@ public class DaoUltra {
             FriendUid = UserUid ^ FriendUid;
             UserUid = UserUid ^ FriendUid;
         }
-        if( !DaoPro.isFriend( UserUid, FriendUid ) ){
+        if( DaoPro.isFriend( UserUid, FriendUid ) ){
             String str = "delete from Friend where UserUid = " + UserUid + " and FriendUid = " + FriendUid;
             result += DaoBase.Update( str );
             return result;
