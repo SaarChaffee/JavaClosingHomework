@@ -24,13 +24,16 @@ public class DaoUltraTest {
 
     @Test
     public void userWin() {
+        System.out.println( DaoUltra.userWin( 686838635 ) );
     }
 
     @Test
     public void userLost() {
+        System.out.println( DaoUltra.userLost( 686838635 ) );
     }
 
     @Test
     public void reported() {
+        System.out.println( DaoUltra.reported( 686838635 ) );
     }
 }
