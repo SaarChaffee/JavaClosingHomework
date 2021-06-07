@@ -19,14 +19,13 @@ public class DaoPro {
             }
             ResultSet re = DaoPlus.getFriend( UserUid );
             while( re.next() ){
-                if( re.getInt( "FriendUid" ) == FriendUid ) return true;
+                if( re.getInt( "friend" ) == FriendUid ) return true;
             }
         }catch( SQLException throwables ){
             throwables.printStackTrace();
         }
         return false;
     }
-
 
 
     public static boolean isRedemptionUsed( String RedemptionCode ) {
@@ -98,8 +97,6 @@ public class DaoPro {
         }
         return report;
     }
-
-
 
 
 }
