@@ -51,9 +51,9 @@ public class DaoPro {
             }catch( SQLException throwables ){
                 throwables.printStackTrace();
             }
-            String str1 = "update UserData set UserBalance = '" + balance + "' where UserUid = '" + UserUid + "'";
+            String str1 = "update UserData set UserBalance = " + balance + " where UserUid = " + UserUid;
             result += DaoBase.Update( str1 );
-            String str2 = "update Redemption set RedemptionUsed = '" + UserUid + "' where RedemptionCode = '" + Code + "'";
+            String str2 = "update Redemption set RedemptionUsed = " + UserUid + " where RedemptionCode = '" + Code + "'";
             result += DaoBase.Update( str2 );
         }
         return result;
