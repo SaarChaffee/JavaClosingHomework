@@ -12,6 +12,7 @@ create table AccountData
 )
 Go
 
+insert into AccountData values(0,1,1,0);
 create table UserData
 (
     UserUid int primary key foreign key references AccountData (UserUid),
