@@ -88,6 +88,10 @@ public class DaoPlus {
     }
 
     public static int getUserUidByAcc( String Account ) {
+        /** TODO
+         * warning:user will get wrong uid by using account
+         * change to use phonenum search
+         */
         int result = 0;
         try{
             String str = "select UserUid from AccountData where UserUid = '" + Account + "'";
@@ -103,6 +107,10 @@ public class DaoPlus {
      * SQL·À×¢Èë¹¥»÷
      */
     public static String getPasswordByAcc( String Account ) {
+        /** TODO
+         * warning:user will get wrong passwd by using account
+         * change to use phonenum search
+         */
         String result = null;
         Connection conn;
         String str = null;
@@ -127,24 +135,32 @@ public class DaoPlus {
     }
 
     public static int NewUser( String Account, String PassWord, int PhoneNumber ) {
+        /**TODO
+         * add uid checking duplicate
+         */
         int result = 0;
+        int newUid = 0;
         try{
+            newUid = getNewUid();
             Connection conn = JDBC.getConn();
-            String str1 = "insert into AccountData " + "value('?','?','?','?')";
+            String str1 = "insert into AccountData "
+                    + "values(?,?,?,?)";
             PreparedStatement pre1 = conn.prepareStatement( str1 );
-            pre1.setInt( 1, getNewUid() );
+            pre1.setInt( 1, newUid );
             pre1.setString( 2, Account );
             pre1.setString( 3, PassWord );
             pre1.setInt( 4, PhoneNumber );
             result += pre1.executeUpdate();
-            String str2 = "insert into UserData " + "value('?','?','1','0','0','0','0','0',null)";
+            String str2 = "insert into UserData "
+                    + "values(?,?,1,0,0,0,0,0,null)";
             PreparedStatement pre2 = conn.prepareStatement( str2 );
-            pre2.setInt( 1, getNewUid() );
+            pre2.setInt( 1, newUid );
             pre2.setString( 2, Account );
             result += pre2.executeUpdate();
-            String str3 = "insert into CardColle " + "value('?')";
+            String str3 = "insert into CardColle(UserUid) "
+                    + "values(?)";
             PreparedStatement pre3 = conn.prepareStatement( str3 );
-            pre3.setInt( 1, getNewUid() );
+            pre3.setInt( 1, newUid );
             result += pre3.executeUpdate();
             pre1.close();
             pre2.close();
