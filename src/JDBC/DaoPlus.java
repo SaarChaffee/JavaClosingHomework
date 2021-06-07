@@ -118,7 +118,8 @@ public class DaoPlus {
         PreparedStatement pre = null;
         try{
             conn = JDBC.getConn();
-            str = "select PassWord from AccountData where Account = '?'";
+            str = "select PassWord from AccountData where Account = ?";
+            pre = conn.prepareStatement( str );
             pre.setString( 1, Account );
             re = pre.executeQuery();
             re.next();
@@ -130,6 +131,9 @@ public class DaoPlus {
     }
 
     public static ResultSet getAllUserData( int UserUid ) {
+        /**TODO
+         * warning:ResultRet method cant unrecognized data type
+         */
         String str = "select * from UserData where UserUid = '" + UserUid + "'";
         return DaoBase.Search( str );
     }
