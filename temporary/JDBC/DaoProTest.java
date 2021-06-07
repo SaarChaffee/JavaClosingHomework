@@ -20,7 +20,7 @@ public class DaoProTest {
 
     @Test
     public void isRedemptionUsed() {
-
+        System.out.println(DaoPro.isRedemptionUsed( "313" ));
     }
 
     @Test
