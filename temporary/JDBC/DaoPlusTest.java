@@ -35,6 +35,7 @@ public class DaoPlusTest {
 
     @Test
     public void getUserBalance() {
+        System.out.println( DaoPlus.getUserBalance( 686838635 ) );
     }
 
     @Test
@@ -45,9 +46,9 @@ public class DaoPlusTest {
 
                 System.out.println( re.getInt( 1 ) );
 
-//                re.close();
 
             }
+            re.close();
         }catch( SQLException throwables ){
             throwables.printStackTrace();
         }
@@ -69,10 +70,10 @@ public class DaoPlusTest {
         try{
             int i = 1;
             re.next();
-            System.out.println( re.getInt( i++ ) );
+            System.out.println( re.getInt( "UserBalance" ) );
 
-            System.out.println( re.getString( 2 ) );
-            System.out.println( re.getBoolean( 2 ) );
+//            System.out.println( re.getString( 2 ) );
+//            System.out.println( re.getBoolean( 2 ) );
             re.close();
         }catch( SQLException throwables ){
             throwables.printStackTrace();

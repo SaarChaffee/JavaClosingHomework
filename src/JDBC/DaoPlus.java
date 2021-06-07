@@ -70,7 +70,7 @@ public class DaoPlus {
     }
 
     public static int getUserBalance( int UserUid ) {
-        ResultSet re;
+        ResultSet re = null;
         int balance = 0;
         try{
             re = getAllUserData( UserUid );
