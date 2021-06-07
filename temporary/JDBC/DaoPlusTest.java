@@ -39,11 +39,23 @@ public class DaoPlusTest {
 
     @Test
     public void getAllUserUid() {
+        ResultSet re = DaoPlus.getAllUserUid();
+        try{
+            while( re.next() ){
+
+                System.out.println( re.getInt( 1 ) );
+
+//                re.close();
+
+            }
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
     }
 
     @Test
     public void getUserUidByAcc() {
-        System.out.println(DaoPlus.getUserUidByAcc( "adadadad" ));
+        System.out.println( DaoPlus.getUserUidByAcc( "adadadad" ) );
     }
 
     @Test
