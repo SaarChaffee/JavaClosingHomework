@@ -36,7 +36,7 @@ public class DaoPlus {
      * 胜利失败被举报
      */
     public static ResultSet getFriend( int UserUid ) {
-        String str = "select * from Friend where UserUid = '" + UserUid + "' UNION ALL select * from Friend where FriendUid = '" + UserUid + "'";
+        String str = "select FriendUid as friend from Friend where UserUid = " + UserUid + " UNION ALL select UserUid as friend from Friend where FriendUid = " + UserUid;
         return DaoBase.Search( str );
     }
 
