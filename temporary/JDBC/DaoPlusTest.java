@@ -23,6 +23,9 @@ public class DaoPlusTest {
 
     @Test
     public void getCard() {
+        String card = "Water1";
+        int uid = 686838635;
+        System.out.println( DaoPlus.getCard( uid, card ) );
     }
 
     @Test
