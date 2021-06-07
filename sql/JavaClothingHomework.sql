@@ -29,7 +29,7 @@ Go
 
 create table Friend
 (
-    UserUid int primary key foreign key references AccountData (UserUid),
+    UserUid int foreign key references AccountData (UserUid),
     FriendUid int foreign key references AccountData (UserUid),
 )
 Go
