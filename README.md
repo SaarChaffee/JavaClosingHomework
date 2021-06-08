@@ -11,7 +11,7 @@
 </h1>
 <h2>
 
-### 要使用本模块请下载 [Release](/releases) 中的jar包，在IDE中导入包，最后`import JDBC.*`即可食用
+### 要使用本模块请下载Release [gitee](https://gitee.com/saarchaffee/JavaClosingHomework/releases) or [github](https://gitee.com/saarchaffee/JavaClosingHomework/releases) 中的jar包，在IDE中导入包，最后`import JDBC.*`即可食用
 
 ### 方法的详细说明请移步[API文档](docs/api.md)
 
