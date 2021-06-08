@@ -11,7 +11,9 @@
 </h1>
 <h2>
 
-方法的详细说明请移步[API文档](docs/api.md)
+### 方法的详细说明请移步[API文档](docs/api.md)
+
+### 本模块涉及大量结果集方法，相关说明请移步[ResultRet快速说明](docs/ResultSet.md)
 
 </h2>
 <img src ="./resources//pic1.png">
