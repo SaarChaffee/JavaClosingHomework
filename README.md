@@ -9,5 +9,9 @@
 [![wakatime](https://wakatime.com/badge/github/SaarChaffee/JavaClosingHomework.svg)](https://wakatime.com/badge/github/SaarChaffee/JavaClosingHomework)
 
 </h1>
+<h2>
 
+方法的详细说明请移步[API文档](docs/api.md)
+
+</h2>
 <img src ="./resources//pic1.png">
