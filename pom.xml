@@ -47,6 +47,17 @@
     </dependencies>
 
     <properties>
+        <filter>
+            <!-- Do not copy the signatures in the META-INF folder.
+            Otherwise, this might cause SecurityExceptions when using the JAR. -->
+            <artifact>*:*</artifact>
+            <excludes>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
+
+            </excludes>
+        </filter>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
