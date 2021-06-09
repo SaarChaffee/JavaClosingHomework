@@ -34,21 +34,19 @@
 - **说明：**
   用随机数生成用户 9 位数的 uid
 
-### `getUserUidBtAcc()`
+### `getUserUidBtTel()`
 
-- **参数：** `String : 用户账户`
+- **参数：** `String : 用户手机号码`
 - **返回：** `int : 用户uid`
 - **说明：**
-  向数据库查询用户账户对应的 uid
-- **警告：** 当相同账号的用户查询会遇到串号的情况
+  向数据库查询用户手机号对应的 uid
 
-### `getPasswordByAcc()`
+### `getPasswordByTel()`
 
-- **参数：** `String : 用户账号`
+- **参数：** `String : 用户手机号码`
 - **返回：** `String : 用户密码`
 - **说明：**
-  根据用户账号从数据库查询用户密码，使用`PreparaedStatement`防止用户进行 SQL 注入攻击。
-- **警告：** 当相同账号的用户查询会遇到串号的情况
+  根据用户手机号从数据库查询用户密码，使用`PreparaedStatement`防止用户进行 SQL 注入攻击。
 
 ### `getAllUserData()`
 

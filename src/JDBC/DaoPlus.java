@@ -90,15 +90,11 @@ public class DaoPlus {
         return DaoBase.Search( str );
     }
 
-    public static int getUserUidByAcc( String Account ) {
-        /** TODO
-         * warning:user will get wrong uid by using account
-         * change to use phonenum search
-         */
+    public static int getUserUidByTel( String phone ) {
         int result = 0;
         ResultSet re = null;
         try{
-            String str = "select UserUid from AccountData where Account = '" + Account + "'";
+            String str = "select UserUid from AccountData where PhoneNumber = '" + phone + "'";
             re = DaoBase.Search( str );
             re.next();
             result = re.getInt( "UserUid" );
@@ -112,11 +108,7 @@ public class DaoPlus {
      * 用PreparedStatement来动态组装SQL语句
      * SQL防注入攻击
      */
-    public static String getPasswordByAcc( String Account ) {
-        /** TODO
-         * warning:user will get wrong passwd by using account
-         * change to use phonenum search
-         */
+    public static String getPasswordByTel( String phone ) {
         String result = null;
         Connection conn;
         String str = null;
@@ -124,9 +116,9 @@ public class DaoPlus {
         PreparedStatement pre = null;
         try{
             conn = JDBC.getConn();
-            str = "select PassWord from AccountData where Account = ?";
+            str = "select PassWord from AccountData where PhoneNumber = ?";
             pre = conn.prepareStatement( str );
-            pre.setString( 1, Account );
+            pre.setString( 1, phone );
             re = pre.executeQuery();
             re.next();
             result = re.getString( "PassWord" );
@@ -144,7 +136,7 @@ public class DaoPlus {
         return DaoBase.Search( str );
     }
 
-    public static int NewUser( String Account, String PassWord, int PhoneNumber ) {
+    public static int NewUser( String Account, String PassWord, String PhoneNumber ) {
         /**TODO
          * add uid checking duplicate
          */
@@ -159,7 +151,7 @@ public class DaoPlus {
             pre1.setInt( 1, newUid );
             pre1.setString( 2, Account );
             pre1.setString( 3, PassWord );
-            pre1.setInt( 4, PhoneNumber );
+            pre1.setString( 4, PhoneNumber );
             result += pre1.executeUpdate();
             String str2 = "insert into UserData "
                     + "values(?,?,1,0,0,0,0,0,null)";

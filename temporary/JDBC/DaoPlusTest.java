@@ -83,12 +83,12 @@ public class DaoPlusTest {
 
     @Test
     public void getUserUidByAcc() {
-        System.out.println( DaoPlus.getUserUidByAcc( "adadadad" ) );
+        System.out.println( DaoPlus.getUserUidByTel( "99999999999" ) );
     }
 
     @Test
     public void getPasswordByAcc() {
-        System.out.println( DaoPlus.getPasswordByAcc( "adadadad" ) );
+        System.out.println( DaoPlus.getPasswordByTel( "99999999999" ) );
     }
 
     @Test
@@ -111,7 +111,7 @@ public class DaoPlusTest {
     public void newUser() {
         String acc = "adadadad";
         String passwd = "114514";
-        int phone = 13332271;
+        String phone = "99999999999";
         System.out.println( DaoPlus.NewUser( acc, passwd, phone ) );
 //        System.out.println( new SecureRandom().nextInt( 999999999 ) );
     }
