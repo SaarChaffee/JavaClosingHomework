@@ -1,10 +1,10 @@
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
- * @Code: GBK
+ * @Code: UTF-8
  * @Date: Created in 2021 2021/6/6
  */
-package JDBC;
+package JDBC.DAO;
 
 public class DaoUltra {
     public static int addFriend( int UserUid, int FriendUid ) {

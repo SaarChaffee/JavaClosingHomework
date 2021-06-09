@@ -1,10 +1,10 @@
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
- * @Code: GBK
+ * @Code: UTF-8
  * @Date: Created in 2021 2021/6/5
  */
-package JDBC;
+package JDBC.DAO;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -36,31 +36,6 @@ public class JDBC {
     }
 }
 
-//public class JDBC {
-//    private static Statement stat;
-//
-//    static {
-//        //1.加载驱动
-//        try{
-//            Class.forName( "com.microsoft.sqlserver.jdbc.SQLServerDriver" );
-//            String url = "jdbc:sqlserver://localhost:1433";
-//            String username = "Java";
-//            String password = "111";
-//            Connection conn = null;
-//
-//            //2.获取与数据库的链接
-//            conn = DriverManager.getConnection( url, username, password );
-//            stat = conn.createStatement();
-//        }catch( ClassNotFoundException | SQLException e ){
-//            e.printStackTrace();
-//        }
-//
-//    }
-//
-//    public static Statement getStat() {
-//        return stat;
-//    }
-//}
 /**
  * drop database db
  * create database db
@@ -101,13 +76,13 @@ public class JDBC {
  * right outer join t1
  * left outer join t1
  * full outer join t1
- * where in|exists|not exists(select * from table where 条件) --套娃
+ * where in|exists|not exists(select * from table where 锟斤拷锟斤拷) --锟斤拷锟斤拷
  * and a.key between 1 and 2
  * and a.key like '1'
  * and ...
  * ORDER BY key ASC | DESC
  * GROUP BY key
- * HAVING 公式条件：avg(),sum(),max(),min(),first(),last(),count()
+ * HAVING 鍏紡鏉′欢:avg(),sum(),max(),min(),first(),last(),count()
  * <p>
  * union all
  * select *

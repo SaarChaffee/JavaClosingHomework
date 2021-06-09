@@ -1,5 +1,6 @@
 package JDBC;
 
+import JDBC.DAO.DaoPlus;
 import org.junit.Test;
 
 import java.sql.ResultSet;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
- * @Code: GBK
+ * @Code: UTF-8
  * @Date: Created in 2021 2021/6/6
  */
 public class DaoPlusTest {
@@ -47,11 +48,11 @@ public class DaoPlusTest {
 
     @Test
     public void getColle() {
-        boolean[] colle = new boolean[61];
-        colle = DaoPlus.getColle( 686838635 );
+        ResultSet colle = null;
+        colle = DaoPlus.getColleSet( 686838635 );
         for( int i = 1; i <= 60; i++ ){
             System.out.print( i + ":" );
-            System.out.print( colle[i] + " " );
+            System.out.print( colle + " " );
         }
     }
 

@@ -1,10 +1,10 @@
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
- * @Code: GBK
+ * @Code: UTF-8
  * @Date: Created in 2021 2021/6/6
  */
-package JDBC;
+package JDBC.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,10 +1,10 @@
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
- * @Code: GBK
+ * @Code: UTF-8
  * @Date: Created in 2021 2021/6/5
  */
-package JDBC;
+package JDBC.DAO;
 
 import java.security.SecureRandom;
 import java.sql.Connection;
@@ -14,26 +14,28 @@ import java.sql.SQLException;
 
 /**
  * TODO
- * ½øÒ»²½·ÖÀëDao²ã
+ * é‡æ–°åˆ†å¸ƒDaoå±‚ï¼ŒDomainå±‚
+ * ç®€åŒ–DAOå±‚ï¼Œå¢åŠ æœåŠ¡å±‚
+ * å‡†å¤‡å¢åŠ WebSocketæœåŠ¡ç«¯
  */
 public class DaoPlus {
     /**
-     * ĞÂ½¨ÓÃ»§
-     * ÓÃ»§µÇÂ¼
-     * ¶ÁÈ¡ÓÃ»§Êı¾İ
-     * ¶ÁÈ¡ÊÕ¼¯
-     * ²é¿´ºÃÓÑ
-     * ÅĞ¶ÏºÃÓÑ
-     * Ìí¼ÓºÃÓÑ
-     * É¾³ıºÃÓÑ
-     * ë´½ğ
-     * ²éÑ¯Óà¶î
-     * ²éÑ¯¶Ò»»ÂëĞÅÏ¢
-     * ²éÑ¯¶Ò»»ÂëÊÇ·ñÊ¹ÓÃ
-     * Ê¹ÓÃ¶Ò»»Âë
-     * ¿¨Æ¬Ôö¼Ó
-     * ²éÑ¯Ê¤³¡¸º³¡¾Ù±¨´ÎÊı
-     * Ê¤ÀûÊ§°Ü±»¾Ù±¨
+     * æ–°å»ºç”¨æˆ·
+     * ç”¨æˆ·ç™»å½•
+     * è¯»å–ç”¨æˆ·æ•°æ®
+     * è¯»å–æ”¶é›†
+     * æŸ¥çœ‹å¥½å‹
+     * åˆ¤æ–­å¥½å‹
+     * æ·»åŠ å¥½å‹
+     * åˆ é™¤å¥½å‹
+     * æ°ªé‡‘
+     * æŸ¥è¯¢ä½™é¢
+     * æŸ¥è¯¢å…‘æ¢ç ä¿¡æ¯
+     * æŸ¥è¯¢å…‘æ¢ç æ˜¯å¦ä½¿ç”¨
+     * ä½¿ç”¨å…‘æ¢ç 
+     * å¡ç‰‡å¢åŠ 
+     * æŸ¥è¯¢èƒœåœºè´Ÿåœºä¸¾æŠ¥æ¬¡æ•°
+     * èƒœåˆ©å¤±è´¥è¢«ä¸¾æŠ¥
      */
     public static ResultSet getFriend( int UserUid ) {
         String str = "select FriendUid as friend from Friend where UserUid = " + UserUid + " UNION ALL select UserUid as friend from Friend where FriendUid = " + UserUid;
@@ -42,7 +44,7 @@ public class DaoPlus {
 
     public static ResultSet getRedemptionInfo( String RedemptionCode ) {
         /**TODO
-         * ½øÒ»²½·ÖÀëÊı¾İ
+         * è¿›ä¸€æ­¥åˆ†ç¦»æ•°æ®
          */
         String str = "select * from Redemption where RedemptionCode = '" + RedemptionCode + "'";
         return DaoBase.Search( str );
@@ -53,19 +55,10 @@ public class DaoPlus {
         return DaoBase.Update( str );
     }
 
-    public static boolean[] getColle( int UserUid ) {
-        boolean[] colle = new boolean[61];
-        try{
-            String str = "select * from CardColle where UserUid = '" + UserUid + "'";
-            ResultSet re = DaoBase.Search( str );
-            re.next();
-            for( int i = 1; i <= 60; i++ ){
-                colle[i] = re.getBoolean( i + 1 );
-            }
-        }catch( SQLException throwables ){
-            throwables.printStackTrace();
-        }
-        return colle;
+    public static ResultSet getColleSet( int UserUid ) {
+        String str = "select * from CardColle where UserUid = '" + UserUid + "'";
+        ResultSet re = DaoBase.Search( str );
+        return re;
     }
 
     public static int getNewUid() {
@@ -104,10 +97,7 @@ public class DaoPlus {
         return result;
     }
 
-    /**
-     * ÓÃPreparedStatementÀ´¶¯Ì¬×é×°SQLÓï¾ä
-     * SQL·À×¢Èë¹¥»÷
-     */
+
     public static String getPasswordByTel( String phone ) {
         String result = null;
         Connection conn;

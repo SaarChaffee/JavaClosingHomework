@@ -1,12 +1,14 @@
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
- * @Code: GBK
+ * @Code: UTF-8
  * @Date: Created in 2021 2021/6/5
  */
-package JDBC;
+package JDBC.DOMAIN;
 
-class KeyData {
+import java.sql.ResultSet;
+
+public class UserData {
     int UserUid;
     String UserName;
     String Account;
@@ -19,11 +21,8 @@ class KeyData {
     int UserCardQuantity;
     int UserBalance;
     String UserSignature;
-    int FriendUid;
-    String RedemptionCode;
-    int RedemptionCodeValue;
-    int RedemptionUsed;
-    boolean[] HaveCard;
+    ResultSet FriendUid;
+    ResultSet HaveCard;
 
     public int getUserUid() {
         return UserUid;
@@ -121,43 +120,20 @@ class KeyData {
         UserSignature = userSignature;
     }
 
-    public int getFriendUid() {
+    public ResultSet getFriendUid() {
         return FriendUid;
     }
 
-    public void setFriendUid( int friendUid ) {
+    public void setFriendUid( ResultSet friendUid ) {
         FriendUid = friendUid;
     }
 
-    public String getRedemptionCode() {
-        return RedemptionCode;
-    }
 
-    public void setRedemptionCode( String redemptionCode ) {
-        RedemptionCode = redemptionCode;
-    }
-
-    public int getRedemptionCodeValue() {
-        return RedemptionCodeValue;
-    }
-
-    public void setRedemptionCodeValue( int redemptionCodeValue ) {
-        RedemptionCodeValue = redemptionCodeValue;
-    }
-
-    public int getRedemptionUsed() {
-        return RedemptionUsed;
-    }
-
-    public void setRedemptionUsed( int redemptionUsed ) {
-        RedemptionUsed = redemptionUsed;
-    }
-
-    public boolean[] getHaveCard() {
+    public ResultSet getHaveCard() {
         return HaveCard;
     }
 
-    public void setHaveCard( boolean[] haveCard ) {
+    public void setHaveCard( ResultSet haveCard ) {
         HaveCard = haveCard;
     }
 }

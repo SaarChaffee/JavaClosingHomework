@@ -1,5 +1,6 @@
 package JDBC;
 
+import JDBC.DAO.JDBC;
 import org.junit.Test;
 
 import java.sql.Connection;
@@ -7,7 +8,7 @@ import java.sql.SQLException;
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
- * @Code: GBK 
+ * @Code: UTF-8 
  * @Date: Created in 2021 2021/6/6
  */public class JDBCTest {
 

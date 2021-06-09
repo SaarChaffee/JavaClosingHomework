@@ -1,13 +1,12 @@
 package JDBC;
 
+import JDBC.DAO.DaoPro;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
- * @Code: GBK
+ * @Code: UTF-8
  * @Date: Created in 2021 2021/6/7
  */
 public class DaoProTest {
