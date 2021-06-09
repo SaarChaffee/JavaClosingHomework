@@ -11,7 +11,7 @@ class KeyData {
     String UserName;
     String Account;
     String Password;
-    int PhoneNumber;
+    String PhoneNumber;
     int UserLevel;
     int UserWin;
     int UserLost;
@@ -57,11 +57,11 @@ class KeyData {
         Password = password;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return PhoneNumber;
     }
 
-    public void setPhoneNumber( int phoneNumber ) {
+    public void setPhoneNumber( String phoneNumber ) {
         PhoneNumber = phoneNumber;
     }
 
