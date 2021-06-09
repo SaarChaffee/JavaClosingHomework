@@ -1,3 +1,6 @@
+Use master
+drop database mooer
+
 create database mooer
 
 Go
@@ -8,7 +11,7 @@ create table AccountData
     UserUid int primary key,
     Account varchar(50) not null,
     PassWord varchar(50) not null,
-    PhoneNumber int unique
+    PhoneNumber varchar(11) not null unique
 )
 Go
 
