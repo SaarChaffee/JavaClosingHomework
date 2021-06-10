@@ -2,7 +2,7 @@
 
 ## 方法
 
-以下方法均可从`JDBC.DaoBase`中导入
+以下方法均可从`JDBC.DAO.DaoBase`中导入
 
 ### `Update()` <Badge text="1.5.0-" type="error"/>
 
@@ -18,7 +18,7 @@
 - **说明：**
   向数据库注入查询语句
 
-以下方法均可从`JDBC.DaoPlus`中导入
+以下方法均可从`JDBC.DAO.DaoPlus`中导入
 
 ### `NewUser()`
 
@@ -72,9 +72,9 @@
 ### `getColle()`
 
 - **参数：** `int : 用户uid`
-- **返回：** `boolean[] : 卡牌拥有状态`
+- **返回：** `ResultSet : 拥有卡牌的集合`
 - **说明：**
-  从数据库中获取用户所有卡牌的拥有状态，用`boolen[]`类型存储，`true : 拥有`，`false : 未拥有`
+  从数据库中获取用户所有卡牌的拥有状态，用`ResultSet`类型存储
 
 ### `getCard()`
 
@@ -97,7 +97,7 @@
 - **说明：**
   向数据库查询用户好友列表，以`ResultSet`类型存储
 
-以下方法均可从`JDBC.DaoPro`中导入
+以下方法均可从`JDBC.DAO.DaoPro`中导入
 
 ### `isFriend()`
 
@@ -112,6 +112,13 @@
 - **返回：** `boolean`
 - **说明：**
   调用`getRedmptionInfo()`向数据库查询兑换码使用状态，`true : 已使用`,`false : 未使用`
+
+### `colles()`
+
+- **参数：** `int : 用户uid`
+- **返回：** `boolean[]`
+- **说明：**
+  在`getColle()`中分离用户拥有的卡牌状态，用`boolean[]`储存，从`1`开始`60`结束，`true`为拥有，`false`为未拥有
 
 ### `recharge()`
 
@@ -141,7 +148,7 @@
 - **说明：**
   调用`getAllUserData()`向数据库查询用户举报次数
 
-以下方法均可从`JDBC.DaoUltra`中导入
+以下方法均可从`JDBC.DAO.DaoUltra`中导入
 
 ### `addFriend()`
 
