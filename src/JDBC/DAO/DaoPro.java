@@ -59,6 +59,21 @@ public class DaoPro {
         return result;
     }
 
+    public static boolean[] colles( int UserUid ) {
+        ResultSet re = DaoPlus.getColleSet( UserUid );
+        boolean[] bl = new boolean[61];
+        try{
+            re.next();
+            for( int i = 1; i <= 60; i++ ){
+                bl[i] = re.getBoolean( i + 1 );
+            }
+            re.close();
+        }catch( SQLException throwables ){
+            throwables.printStackTrace();
+        }
+        return bl;
+    }
+
     public static int getWin( int UserUid ) {
         ResultSet re;
         int win = 0;
