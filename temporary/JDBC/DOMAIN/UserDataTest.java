@@ -1,8 +1,6 @@
-﻿package JDBC.DOMAIN;
+package JDBC.DOMAIN;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @Name: JavaClosingHomework

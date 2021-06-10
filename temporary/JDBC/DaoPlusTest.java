@@ -83,12 +83,12 @@ public class DaoPlusTest {
     }
 
     @Test
-    public void getUserUidByAcc() {
+    public void getUserUidByTel() {
         System.out.println( DaoPlus.getUserUidByTel( "99999999999" ) );
     }
 
     @Test
-    public void getPasswordByAcc() {
+    public void getPasswordByTel() {
         System.out.println( DaoPlus.getPasswordByTel( "99999999999" ) );
     }
 

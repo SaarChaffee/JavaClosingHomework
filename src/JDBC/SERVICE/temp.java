@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @Name: JavaClosingHomework
  * @Author: SaarChaffee
  * @Code: UTF-8
