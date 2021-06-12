@@ -4,7 +4,7 @@
  * @Code: UTF-8
  * @Date: Created in 2021 2021/6/5
  */
-package JDBC.DAO;
+package main.DAO;
 
 import java.security.SecureRandom;
 import java.sql.Connection;

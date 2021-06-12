@@ -4,7 +4,7 @@
  * @Code: UTF-8
  * @Date: Created in 2021 2021/6/9
  */
-package JDBC.DOMAIN;
+package main.DOMAIN;
 
 public class RedemptionData {
     String RedemptionCode;

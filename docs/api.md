@@ -2,7 +2,7 @@
 
 ## 方法
 
-以下方法均可从`JDBC.DAO.DaoBase`中导入
+以下方法均可从`main.DAO.DaoBase`中导入
 
 ### `Update()` <Badge text="1.5.0-" type="error"/>
 
@@ -18,7 +18,7 @@
 - **说明：**
   向数据库注入查询语句
 
-以下方法均可从`JDBC.DAO.DaoPlus`中导入
+以下方法均可从`main.DAO.DaoPlus`中导入
 
 ### `NewUser()`
 
@@ -97,7 +97,7 @@
 - **说明：**
   向数据库查询用户好友列表，以`ResultSet`类型存储
 
-以下方法均可从`JDBC.DAO.DaoPro`中导入
+以下方法均可从`main.DAO.DaoPro`中导入
 
 ### `isFriend()`
 
@@ -148,7 +148,7 @@
 - **说明：**
   调用`getAllUserData()`向数据库查询用户举报次数
 
-以下方法均可从`JDBC.DAO.DaoUltra`中导入
+以下方法均可从`main.DAO.DaoUltra`中导入
 
 ### `addFriend()`
 
