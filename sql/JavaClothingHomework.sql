@@ -8,40 +8,41 @@ Use mooer
 
 create table AccountData
 (
-    UserUid int primary key,
-    Account varchar(50) not null,
-    PassWord varchar(50) not null,
+    UserUid     int primary key,
+    Account     varchar(50) not null,
+    PassWord    varchar(50) not null,
     PhoneNumber varchar(11) not null unique
 )
 Go
 
-insert into AccountData values(0,1,1,0);
+insert into AccountData
+values (0, 1, 1, 0);
 create table UserData
 (
-    UserUid int primary key foreign key references AccountData (UserUid),
-    Account varchar(50) not null,
-    UserLevel int,
-    UserWin int,
-    UserLost int,
-    Reported int,
+    UserUid          int primary key foreign key references AccountData (UserUid),
+    Account          varchar(50) not null,
+    UserLevel        int,
+    UserWin          int,
+    UserLost         int,
+    Reported         int,
     UserCardQuantity int,
-    UserBalance int,
-    UserSignature varchar(100)
+    UserBalance      int,
+    UserSignature    varchar(100)
 )
 Go
 
 create table Friend
 (
-    UserUid int foreign key references AccountData (UserUid),
+    UserUid   int foreign key references AccountData (UserUid),
     FriendUid int foreign key references AccountData (UserUid),
 )
 Go
 
 create table Redemption
 (
-    RedemptionCode varchar(50) primary key ,
+    RedemptionCode      varchar(50) primary key,
     RedemptionCodeValue int,
-    RedemptionUsed int default '0'foreign key references AccountData (UserUid)
+    RedemptionUsed      int default '0' foreign key references AccountData (UserUid)
 
 )
 Go
@@ -49,71 +50,71 @@ Go
 create table CardColle
 (
     UserUid int primary key foreign key references AccountData (UserUid),
-    Water1 bit default 'false',
-    Water2 bit default 'false',
-    Water3 bit default 'false',
-    Water4 bit default 'false',
-    Water5 bit default 'false',
-    Water6 bit default 'false',
-    Water7 bit default 'false',
-    Water8 bit default 'false',
-    Water9 bit default 'false',
-    Water10 bit default 'false',
-    Water11 bit default 'false',
-    Water12 bit default 'false',
-    Water13 bit default 'false',
-    Water14 bit default 'false',
-    Water15 bit default 'false',
-    Water16 bit default 'false',
-    Water17 bit default 'false',
-    Water18 bit default 'false',
-    Water19 bit default 'false',
-    Water20 bit default 'false',
-    Wood1 bit default 'false',
-    Wood2 bit default 'false',
-    Wood3 bit default 'false',
-    Wood4 bit default 'false',
-    Wood5 bit default 'false',
-    Wood6 bit default 'false',
-    Wood7 bit default 'false',
-    Wood8 bit default 'false',
-    Wood9 bit default 'false',
-    Wood10 bit default 'false',
-    Wood11 bit default 'false',
-    Wood12 bit default 'false',
-    Wood13 bit default 'false',
-    Wood14 bit default 'false',
-    Wood15 bit default 'false',
-    Wood16 bit default 'false',
-    Wood17 bit default 'false',
-    Wood18 bit default 'false',
-    Wood19 bit default 'false',
-    Wood20 bit default 'false',
-    Fire1 bit default 'false',
-    Fire2 bit default 'false',
-    Fire3 bit default 'false',
-    Fire4 bit default 'false',
-    Fire5 bit default 'false',
-    Fire6 bit default 'false',
-    Fire7 bit default 'false',
-    Fire8 bit default 'false',
-    Fire9 bit default 'false',
-    Fire10 bit default 'false',
-    Fire11 bit default 'false',
-    Fire12 bit default 'false',
-    Fire13 bit default 'false',
-    Fire14 bit default 'false',
-    Fire15 bit default 'false',
-    Fire16 bit default 'false',
-    Fire17 bit default 'false',
-    Fire18 bit default 'false',
-    Fire19 bit default 'false',
-    Fire20 bit default 'false'
-    
+    水1      bit default 'false',
+    水2      bit default 'false',
+    水3      bit default 'false',
+    水4      bit default 'false',
+    水5      bit default 'false',
+    水6      bit default 'false',
+    水7      bit default 'false',
+    水8      bit default 'false',
+    水9      bit default 'false',
+    水10     bit default 'false',
+    水11     bit default 'false',
+    水12     bit default 'false',
+    水13     bit default 'false',
+    水14     bit default 'false',
+    水15     bit default 'false',
+    水16     bit default 'false',
+    水17     bit default 'false',
+    水18     bit default 'false',
+    水19     bit default 'false',
+    水20     bit default 'false',
+    木1      bit default 'false',
+    木2      bit default 'false',
+    木3      bit default 'false',
+    木4      bit default 'false',
+    木5      bit default 'false',
+    木6      bit default 'false',
+    木7      bit default 'false',
+    木8      bit default 'false',
+    木9      bit default 'false',
+    木10     bit default 'false',
+    木11     bit default 'false',
+    木12     bit default 'false',
+    木13     bit default 'false',
+    木14     bit default 'false',
+    木15     bit default 'false',
+    木16     bit default 'false',
+    木17     bit default 'false',
+    木18     bit default 'false',
+    木19     bit default 'false',
+    木20     bit default 'false',
+    火1      bit default 'false',
+    火2      bit default 'false',
+    火3      bit default 'false',
+    火4      bit default 'false',
+    火5      bit default 'false',
+    火6      bit default 'false',
+    火7      bit default 'false',
+    火8      bit default 'false',
+    火9      bit default 'false',
+    火10     bit default 'false',
+    火11     bit default 'false',
+    火12     bit default 'false',
+    火13     bit default 'false',
+    火14     bit default 'false',
+    火15     bit default 'false',
+    火16     bit default 'false',
+    火17     bit default 'false',
+    火18     bit default 'false',
+    火19     bit default 'false',
+    火20     bit default 'false'
+
 )
 Go
 
 drop login Java
-create login Java with password='111' 
+create login Java with password ='111'
 create user Java for login Java
 exec sp_addrolemember 'db_owner', 'Java'
