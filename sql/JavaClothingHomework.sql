@@ -115,6 +115,8 @@ create table CardColle
 Go
 
 drop login Java
+ALTER DATABASE mooer SET TRUSTWORTHY ON
 create login Java with password ='111'
 create user Java for login Java
 exec sp_addrolemember 'db_owner', 'Java'
+ALTER AUTHORIZATION ON DATABASE::mooer TO [Java]
