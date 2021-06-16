@@ -1,0 +1,7 @@
+backGround = new javax.swing.JPanel(){
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);
+        ImageIcon img=new ImageIcon(getClass().getClassLoader().getResource("backGround/b2.png"));
+        g.drawImage(img.getImage(),0,0,getWidth(),getHeight(),null);
+    }
+}
